@@ -4,7 +4,7 @@ from alerta.plugins import PluginBase
 
 LOG = logging.getLogger('alerta.plugins.enhance')
 
-RUNBOOK_URL = 'http://www.example.com/wiki/RunBook'   # example only
+RUNBOOK_URL = 'https://kb.xtools.tv/display/XWIKI'   # example only
 
 
 class EnhanceAlert(PluginBase):
