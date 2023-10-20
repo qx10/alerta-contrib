@@ -23,7 +23,7 @@ class EnhanceAlert(PluginBase):
 
 
         sub = 'team='
-        res = [i for i in alerta.tags if subs in i]
+        res = [i for i in alert.tags if subs in i]
         s = res.replace('team=','')
         alert.attribures['Team'] = s
         
