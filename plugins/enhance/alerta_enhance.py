@@ -1,11 +1,11 @@
 import logging
 
 from alerta.plugins import PluginBase
+from alerta.models import Alert
 
 LOG = logging.getLogger('alerta.plugins.enhance')
 
 RUNBOOK_URL = 'https://kb.xtools.tv/display/XWIKI'   # example only
-
 
 class EnhanceAlert(PluginBase):
 
@@ -21,6 +21,12 @@ class EnhanceAlert(PluginBase):
         else:
             alert.attributes['isOutOfHours'] = False
 
+
+        sub = 'team='
+        res = [i for i in alerta.tags if subs in i]
+        s = res.replace('team=','')
+        alert.attribures['Team'] = s
+        
         # Add link to Run Book based on event name
         alert.attributes['runBookUrl'] = '{}/{}'.format(
             RUNBOOK_URL, alert.event.replace(' ', '-'))
