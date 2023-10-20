@@ -30,7 +30,7 @@ class EnhanceAlert(PluginBase):
         #sub = 'team='
         #res = [i for i in alert.tags if sub in i]
         #s = res.replace('team=','')
-        team = self.find_tag(alerta.tags, 'team')
+        team = self.find_tag(alert.tags, 'team')
         if team is not None:
             alert.attributes['Team'] = team
         
