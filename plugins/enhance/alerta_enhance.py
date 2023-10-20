@@ -7,6 +7,12 @@ LOG = logging.getLogger('alerta.plugins.enhance')
 RUNBOOK_URL = 'https://kb.xtools.tv/display/XWIKI'   # example only
 
 class EnhanceAlert(PluginBase):
+    def find_tag(self, tags, tag_name):
+        tag = tag_name.lower() + '='
+        for i in tags:
+             if i.lower().startswith(tag):
+                 return i.split('=')[1]
+        return None
 
     def pre_receive(self, alert):
 
@@ -24,7 +30,9 @@ class EnhanceAlert(PluginBase):
         #sub = 'team='
         #res = [i for i in alert.tags if sub in i]
         #s = res.replace('team=','')
-        alert.attributes['Team'] = alert.tags
+        team = self.find_tag(tags, 'team')
+        if team is not None:
+            alert.attributes['Team'] = team
         
         # Add link to Run Book based on event name
         alert.attributes['runBookUrl'] = '{}/{}'.format(
