@@ -9,6 +9,7 @@ RUNBOOK_URL = 'https://kb.xtools.tv/display/XWIKI'   # example only
 class EnhanceAlert(PluginBase):
     def find_tag(self, tags, tag_name):
         tag = tag_name.lower() + '='
+        tags = alerta.tags
         for i in tags:
              if i.lower().startswith(tag):
                  return i.split('=')[1]
