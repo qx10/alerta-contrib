@@ -9,7 +9,6 @@ RUNBOOK_URL = 'https://kb.xtools.tv/display/XWIKI'   # example only
 class EnhanceAlert(PluginBase):
     def find_tag(self, tags, tag_name):
         tag = tag_name.lower() + '='
-        tags = alerta.tags
         for i in tags:
              if i.lower().startswith(tag):
                  return i.split('=')[1]
@@ -31,7 +30,7 @@ class EnhanceAlert(PluginBase):
         #sub = 'team='
         #res = [i for i in alert.tags if sub in i]
         #s = res.replace('team=','')
-        team = self.find_tag(tags, 'team')
+        team = self.find_tag(alerta.tags, 'team')
         if team is not None:
             alert.attributes['Team'] = team
         
