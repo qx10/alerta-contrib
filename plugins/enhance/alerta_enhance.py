@@ -22,10 +22,10 @@ class EnhanceAlert(PluginBase):
             alert.attributes['isOutOfHours'] = False
 
 
-        sub = 'team='
-        res = [i for i in alert.tags if sub in i]
+        #sub = 'team='
+        #res = [i for i in alert.tags if sub in i]
         #s = res.replace('team=','')
-        alert.attribures['Team'] = res
+        alert.attribures['Team'] = alert.tags
         
         # Add link to Run Book based on event name
         alert.attributes['runBookUrl'] = '{}/{}'.format(
