@@ -1,7 +1,6 @@
 import logging
 
 from alerta.plugins import PluginBase
-#from alerta.models import Alert
 
 LOG = logging.getLogger('alerta.plugins.enhance')
 
